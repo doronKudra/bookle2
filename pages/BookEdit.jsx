@@ -6,8 +6,8 @@ const { Link, useNavigate, useParams } = ReactRouterDOM
 
 export function BookEdit() {
 
-    
-    const [bookToEdit, setBookToEdit] = useState(bookService.getNewBook)
+
+    const [bookToEdit, setBookToEdit] = useState(bookService.getNewBook())
     const [isLoading, setIsLoading] = useState(false)
     const navigate = useNavigate()
     const { bookId } = useParams()
@@ -58,13 +58,13 @@ export function BookEdit() {
 
     function onSaveBook(ev) {
         ev.preventDefault()
-        bookService.save(bookToEdit).then((savedBook) => {
-                console.log('savedBook:', savedBook)
-                navigate('/book')
-                showSuccessMsg('Book saved!')
-            })
+        bookService.save(bookToEdit, bookId !== undefined).then((savedBook) => {
+            console.log('savedBook:', savedBook)
+            navigate('/book')
+            showSuccessMsg('Book saved!')
+        })
             .catch(err => {
-                console.log('err:', err)
+                console.log('err:', err, bookToEdit)
                 showErrorMsg('Problem saving book')
             })
     }

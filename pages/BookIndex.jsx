@@ -61,9 +61,9 @@ export function BookIndex() {
                     <BookDetails book={selectedBook} />
                 </section>
             }
-            {/* <button>
+            <button>
                 <Link to="/book/edit">Add Book</Link>
-            </button> */}
+            </button>
         </main>
     )
 }

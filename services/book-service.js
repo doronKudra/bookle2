@@ -34,35 +34,16 @@ function remove(bookId) {
     return storageService.remove(KEY, bookId)
 }
 
-function save(book) {
-    if (book.id) {
+function save(book, isStored = true) {
+    if (book.id && isStored) {
         return storageService.put(KEY, book)
     } else {
         return storageService.post(KEY, book)
     }
 }
 
-function getNewBook(title = '', price = 0) {
-    return {
-        id: utilService.makeId(),
-        title: title,
-        subtitle: utilService.makeLorem(15),
-        authors: ["Oren Yaniv"],
-        publishedDate: utilService.getRandomInt(1700, 2022),
-        description: utilService.makeLorem(50),
-        pageCount: utilService.getRandomInt(1, 700),
-        categories: [
-            "Computers",
-            "Hack"
-        ],
-        thumbnail: "http://www.coding-academy.org/books-photos/20.jpg",
-        language: "en",
-        listPrice: {
-            amount: price,
-            currencyCode: "EUR",
-            isOnSale: false
-        }
-    }
+function getNewBook() {
+    return _createBook()
 }
 
 function getDefaultFilter() {
@@ -522,20 +503,20 @@ function _createBooks() {
 function _createBook() {
     return {
         id: utilService.makeId(),
-        title: "metus hendrerit",
+        title: "Untitled",
         subtitle: utilService.makeLorem(15),
-        authors: ["Oren Yaniv"],
+        authors: ["Anonymous"],
         publishedDate: utilService.getRandomInt(1700, 2022),
         description: utilService.makeLorem(50),
         pageCount: utilService.getRandomInt(1, 700),
         categories: [
-            "Computers",
-            "Hack"
+            "Adventure",
+            "Story"
         ],
-        thumbnail: "http://www.coding-academy.org/books-photos/20.jpg",
+        thumbnail: `http://www.coding-academy.org/books-photos/${utilService.getRandomInt(1,20)}.jpg`,
         language: "en",
         listPrice: {
-            amount: utilService.getRandomInt(10, 30),
+            amount: 0,
             currencyCode: "EUR",
             isOnSale: false
         }
