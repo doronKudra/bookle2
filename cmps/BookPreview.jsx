@@ -1,10 +1,14 @@
+const { Link } = ReactRouterDOM
+
 export function BookPreview({ book }) {
     return <article>
         <div className="book-card-select-book" >
             <div className="book-card-title">{book.title}</div>
             <section className="preview-image-container">
+                <Link to={`/book/${book.id}`}>
                 {book.listPrice.isOnSale && <div className="book-details-on-sale">On-sale!</div>}
-                <img src={book.thumbnail} className="book-card-thumbnail" />
+                <img src={book.thumbnail} className="book-card-thumbnail"  />
+                </Link>
             </section>
         </div>
 

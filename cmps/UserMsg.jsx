@@ -1,10 +1,6 @@
 import { eventBusService } from "../services/event-bus.service.js"
 
 const { useState, useEffect } = React
-const demoMsg = {
-    type: 'success',
-    txt: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus molestias, ipsam voluptatibus tempore iste neque.'
-}
 
 export function UserMsg() {
 

@@ -8,6 +8,7 @@
 @import './books-filter.css';
 @import './books-list.css';
 @import './long-text.css';
+@import './user-msg.css';
 
 * {
   box-sizing: border-box;

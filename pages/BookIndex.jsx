@@ -3,6 +3,7 @@ import { BookList } from '../cmps/BookList.jsx'
 import { BookDetails } from './BookDetails.jsx'
 import { BookFilter } from '../cmps/BookFilter.jsx'
 import { BookEdit } from './BookEdit.jsx'
+import { showErrorMsg, showSuccessMsg } from "../services/event-bus.service.js"
 
 const { useEffect, useState } = React
 const { Link } = ReactRouterDOM
@@ -27,9 +28,15 @@ export function BookIndex() {
     function onRemoveBook(bookId) {
         bookService.remove(bookId)
             .then(() => {
-                setBooks(prevBooks => prevBooks.filter((b) => b.id !== bookId))
+                setBooks(prevBooks => prevBooks.filter((book) => book.id !== bookId))
+                showSuccessMsg(`Book removed successfully (${bookId})`)
+            })
+            .catch(err => {
+                console.log('err:', err)
+                showErrorMsg('Cannot remove book')
             })
     }
+
 
     function onSetFilter(filterBy) {
         setFilterBy(prevFilter => ({ ...prevFilter, ...filterBy }))
@@ -48,10 +55,10 @@ export function BookIndex() {
                 </React.Fragment>
             )}
 
-            {selectedBook && 
+            {selectedBook &&
                 <section>
-                    <BookEdit book={selectedBook}/>
-                    <BookDetails book={selectedBook}/>
+                    <BookEdit book={selectedBook} />
+                    <BookDetails book={selectedBook} />
                 </section>
             }
             {/* <button>
