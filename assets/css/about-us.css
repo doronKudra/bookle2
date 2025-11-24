@@ -1,0 +1,12 @@
+.about-us{
+    text-align: center;
+    background-color: rgb(184, 215, 245);
+    height: 92.5vh;
+    display: flex;
+    font-size: 30px;
+    font-weight: bold;
+    flex-direction: column;
+}
+.spaning{
+    padding: 1rem;
+}

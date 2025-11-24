@@ -1,0 +1,23 @@
+
+
+@import './about-us.css';
+@import './home-page.css';
+@import './app-header.css';
+@import './books-details.css';
+@import './books-edit.css';
+@import './books-filter.css';
+@import './books-list.css';
+@import './long-text.css';
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #efefef;
+  margin: 0;
+}
+
+button {
+    cursor: pointer;
+}

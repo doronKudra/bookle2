@@ -1,0 +1,24 @@
+.app-header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+    background-color: rgb(255, 255, 255);
+}
+.nav-bar >*:not(:last-child){
+    margin-right: 1rem;
+}
+.nav-bar >*{
+    text-decoration: none;
+    color: rgb(47, 0, 255);
+    font-size: 1.5rem;
+    font-weight: bold;
+    
+}
+.nav-bar >*:hover{
+    color: rgb(255, 0, 0);
+}
+.logo{
+    cursor: pointer;
+    max-width: 200px;
+}
