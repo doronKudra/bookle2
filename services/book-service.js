@@ -7,7 +7,8 @@ export const bookService = {
     save,
     getDefaultFilter,
     remove,
-    getNewBook
+    getNewBook,
+    addReview
 }
 const KEY = 'booksDB'
 _createBooks()
@@ -521,4 +522,12 @@ function _createBook() {
             isOnSale: false
         }
     }
+}
+
+function addReview(bookId, review){
+    return getById(bookId).then( (book) => {
+        if(!book.reviews) book.reviews = []
+    book.reviews.push(review)
+    return save(book)} )
+
 }

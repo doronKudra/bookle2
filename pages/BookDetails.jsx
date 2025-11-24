@@ -1,5 +1,6 @@
 import { LongTxt } from "../cmps/LongTxt.jsx";
 import { bookService } from "../services/book-service.js";
+import { AddReview } from "../cmps/AddReview.jsx"
 
 const { useState, useEffect } = React
 const { Link, useNavigate, useParams } = ReactRouterDOM
@@ -142,6 +143,8 @@ export function BookDetails() { //{ book, onGoBack, onGoEdit }
                     <span className="book-details-info-title">Description:</span>
                     <LongTxt txt={description} />
                 </div>
+
+                <AddReview />
             </div>
         </section>
     )

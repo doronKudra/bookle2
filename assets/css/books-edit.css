@@ -46,3 +46,21 @@
     background-color: aqua;
     padding-bottom: 0.5rem;
 }
+
+.book-review-container{
+    display: flex;
+    flex-direction: column;
+    padding-block: 0.5rem;
+    background-color: rgb(175, 255, 255);
+    
+}
+
+.book-review-info-row{
+    align-self: center;
+    width: 25%;
+}
+
+.book-review-info-row >input{
+    display: flex;
+    
+}
