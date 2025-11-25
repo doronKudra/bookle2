@@ -8,7 +8,8 @@ export const bookService = {
     getDefaultFilter,
     remove,
     getNewBook,
-    addReview
+    addReview,
+    getFilterFromSearchParams
 }
 const KEY = 'booksDB'
 _createBooks()
@@ -530,4 +531,13 @@ function addReview(bookId, review){
     book.reviews.push(review)
     return save(book)} )
 
+}
+
+function getFilterFromSearchParams(searchParams) {
+    const title = searchParams.get('title') || ''
+    const price = searchParams.get('price') || ''
+    return {
+        title,
+        price
+    }
 }

@@ -6,16 +6,22 @@ import { BookEdit } from './BookEdit.jsx'
 import { showErrorMsg, showSuccessMsg } from "../services/event-bus.service.js"
 
 const { useEffect, useState } = React
-const { Link } = ReactRouterDOM
+const { Link, useSearchParams } = ReactRouterDOM
 
 export function BookIndex() {
     const [books, setBooks] = useState(null)
     const [filterBy, setFilterBy] = useState(bookService.getDefaultFilter())
     const [selectedBook, setSelectedBook] = useState(null)
+    const [searchParams, setSearchParams] = useSearchParams()
 
     useEffect(() => {
+        setSearchParams(filterBy)
         loadBooks()
     }, [filterBy])
+
+    useEffect(() => {
+        setFilterBy(bookService.getFilterFromSearchParams(searchParams))
+    }, [])
 
     function loadBooks() {
         bookService.query(filterBy).then(setBooks)
